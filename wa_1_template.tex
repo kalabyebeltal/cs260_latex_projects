@@ -1,5 +1,5 @@
 \documentclass[addpoints]{exam}
-
+\usepackage{cancel}
 \usepackage{listings}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -343,7 +343,7 @@ $\lg(n) < n^{0.00001} < n^2 < 2^n < n^n$
 
 %
 
-\part[5] Prove or disprove: $2^n = o(3^n)$
+\part[5] Prove or disprove: y
 
 \textbf{Solution:}
 
@@ -357,6 +357,17 @@ Therefore, $2^n = o(3^n)$
 
 \part[5] Would your answer to the previous question remain the same for any pair of positive and constant exponent bases, e.g. 7 and 5, or 11 and 32? Explain your answer.
 
+\textbf{Solution:}
+
+$a^n = o(b^n)$, only when a < b
+
+\begin{align*} \lim_{n \to \infty} \frac{a^n}{b^n} = \lim_{n \to \infty} (\frac{a}{b})^n \end{align*}
+
+If $(\frac{a}{b})^n >= 1$, then;
+
+\begin{align*} \lim_{n \to \infty} (\frac{a}{b})^n \cancel{=} 0 \end{align*}
+
+Therefore, $a^n \cancel{=} o(b^n)\  when; \ a >= b$
 
 %
 
@@ -371,7 +382,12 @@ Therefore, $2^n = o(3^n)$
 %
 
 \part[5] Prove or disprove: $2^n = o(2^{n+1})$
-YOUR SOLUTION HERE
+
+\textbf{Solution:}
+
+\begin{align*} \lim_{n \to \infty} \frac{2^n}{2^{n+1}} = \lim_{n \to \infty}\frac{2^n}{2^n \cdot 2} \end{align*}
+
+\cancel{eh}
 
 %
 
