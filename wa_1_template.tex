@@ -243,11 +243,97 @@ Therefore, $f_2(n) = o(f_1(n))$
 
 \
 
-2. Compare $f_1(n)$ and $f_3(n)$:
+2. $f_1(n)$ and $f_3(n)$:
 
 \begin{align*} \lim_{n \to \infty} \frac{n^2}{n^n} &= \lim_{n \to \infty} n^{2-n}  \ = 0 \end{align*}
 
 Therefore, $f_3(n) = o(f_1(n))$
+
+\ 
+
+\ 
+
+3. $f_1(n)$ and $f_4(n)$:
+
+\begin{align*} \lim_{n \to \infty} \frac{\lg(n)}{n^n} = 0 \end{align*}
+
+Therefore, $f_4(n) = o(f_1(n))$
+
+\ 
+
+\ 
+
+4. $f_1(n)$ and $f_5(n)$:
+
+\begin{align*} \lim_{n \to \infty} \frac{2^n}{n^n} &= \lim_{n \to \infty} \left(\frac{2}{n}\right)^n \ = 0 \end{align*}
+
+Therefore, $f_5(n) = o(f_1(n))$
+
+\ 
+
+\ 
+
+5. $f_2(n)$ and $f_3(n)$:
+
+\begin{align*} \lim_{n \to \infty} \frac{n^{0.00001}}{n^2} &= \lim_{n \to \infty} n^{-1.99999} \ = 0 \end{align*}
+
+Therefore, $f_2(n) = o(f_3(n))$
+
+\ 
+
+\ 
+
+6. $f_2(n)$ and $f_4(n)$:
+
+\begin{align*} \lim_{n \to \infty} \frac{\lg(n)}{n^{0.00001}} &= \lim_{n \to \infty} \frac{\frac{1}{n \ln(2)}}{0.00001 \cdot n^{-0.99999}} \ = 0 \end{align*}
+
+Therefore, $f_4(n) = o(f_2(n))$
+
+\ 
+
+\ 
+
+7. $f_2(n)$ and $f_5(n)$:
+
+\begin{align*} \lim_{n \to \infty} \frac{n^{0.00001}}{2^n} = 0 \end{align*}
+
+Therefore, $f_2(n) = o(f_5(n))$
+
+\ 
+
+\ 
+
+8. $f_3(n)$ and $f_4(n)$:
+
+\begin{align*} \lim_{n \to \infty} \frac{\lg(n)}{n^2} = 0 \end{align*}
+
+Therefore, $f_4(n) = o(f_3(n))$
+
+\ 
+
+\ 
+
+9. $f_3(n)$ and $f_5(n)$:
+
+\begin{align*} \lim_{n \to \infty} \frac{n^2}{2^n} &= \lim_{n \to \infty} \frac{2n}{2^n \ln(2)} \ &= \lim_{n \to \infty} \frac{2}{2^n (\ln(2))^2} \ &= 0 \end{align*}
+
+Therefore, $f_3(n) = o(f_5(n))$
+
+\ 
+
+\ 
+
+10. $f_4(n)$ and $f_5(n)$:
+
+\begin{align*} \lim_{n \to \infty} \frac{\lg(n)}{2^n} = 0 \end{align*}
+
+Therefore, $f_4(n) = o(f_5(n))$
+
+Ordering:
+
+$f_4(n) < f_2(n) < f_3(n) < f_5(n) < f_1(n)$
+
+$\lg(n) < n^{0.00001} < n^2 < 2^n < n^n$
 
 %%%
 
@@ -258,12 +344,19 @@ Therefore, $f_3(n) = o(f_1(n))$
 %
 
 \part[5] Prove or disprove: $2^n = o(3^n)$
-YOUR SOLUTION HERE
+
+\textbf{Solution:}
+
+\begin{align*} \lim_{n \to \infty} \frac{2^n}{3^n} = \lim_{n \to \infty} (\frac{2}{3})^n \end{align*}
+
+\begin{align*}Since, \frac{2}{3} < 1;\ \lim_{n \to \infty} (\frac{2}{3})^\infty = 0 \end{align*}
+
+Therefore, $2^n = o(3^n)$
 
 %
 
 \part[5] Would your answer to the previous question remain the same for any pair of positive and constant exponent bases, e.g. 7 and 5, or 11 and 32? Explain your answer.
-YOUR SOLUTION HERE
+
 
 %
 
