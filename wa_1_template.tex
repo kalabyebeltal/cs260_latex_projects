@@ -1,6 +1,7 @@
 \documentclass[addpoints]{exam}
 \usepackage{listings}
 \usepackage{amsmath}
+\usepackage{cancel}
 \usepackage{amsfonts}
 \usepackage{mathtools}
 \usepackage{tikz}
@@ -386,12 +387,15 @@ Therefore, $a^n \neq o(b^n)\  when; \ a >= b$
 
 \begin{align*} \lim_{n \to \infty} \frac{2^n}{2^{n+1}} = \lim_{n \to \infty}\frac{2^n}{2^n \cdot 2} \end{align*}
 
-\cancel{eh}
+\begin{align*} \lim_{n \to \infty}\frac{\cancel{2^n}}{{\cancel 2^n} \cdot 2} = \lim_{n \to \infty} \frac12 = \frac12 \end{align*}
+
+Therefore, $2^n \neq o(2^{n+1})$
 
 %
 
 \part[5] Would your answer to the previous question remain the same for any constant amount of increase to the power, e.g. $2^{n+100}$? Explain your answer.
-YOUR SOLUTION HERE
+
+\textbf{Solution:}
 
 %
 
