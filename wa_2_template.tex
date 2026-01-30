@@ -24,7 +24,7 @@
 \begin{document}
 
 \title{CS260 - Written Assignment 2}
-\author{YOUR NAME HERE}
+\author{Kal-Ab Yebeltal}
 \date{Winter 2025-26}
 \maketitle
 
@@ -52,9 +52,32 @@ function dupes(L, n) {
 }
 \end{verbatim}
 
-YOUR SOLUTION HERE
+\textbf{Solution:}
+
+\
+
+\textbf{Best Case}: The first two elements are duplicates,
+
+\begin{align*} \sum_{i=1}^{1}c = c = \Theta(1) \end{align*}
+
+
+\textbf{Worst Case}: There are no duplicate elements,
+
+\begin{align*}\sum_{i=0}^{n-2}\ \sum_{j=i+1}^{n-1}1 = \sum_{i=0}^{n-2}(n-1-i)\end{align*}
+
+Let, $k = (n - 1).$
+
+\begin{align*}\sum_{k=1}^{n-2}k = \frac{(n-1)\ n}{2} = \frac{n^2-n}{2} = \Theta (n^2) \end{align*}
+
+
+  
 
 %%%
+
+\ 
+
+\ 
+
 
 \question Consider the following code:
 
@@ -83,7 +106,13 @@ function foo(length) {
 
 \part[8] Give a recurrence that represents the runtime of \texttt{fooRec}.
 
-YOUR SOLUTION HERE
+\textbf{Solution:}
+
+\ 
+
+$T(n) = \begin{cases} c & \text{if } n = \text{length} \\ 2\ T(n+1)+c & \text{if } n < \text{length} \end{cases}$
+        
+\ 
 
 %
 
@@ -91,7 +120,17 @@ YOUR SOLUTION HERE
 
 Hint: Here is the closed form of the geometric series: $\sum_{i=0}^k 2^i = 2^{k+1} - 1$. Be careful with your algebra; if a term is outside of parentheses, it's distributed to all terms inside the parentheses.
 
-YOUR SOLUTION HERE
+\textbf{Solution:}
+
+\  
+\begin{align*}
+i=1 &\ & 2T(n+1) + c \\
+i=2 &\ & 2^{2}T(n+2) + c(2^0+2^1) \\
+i=3 & \ & 2^{3}T(n+2) + c(2^0+2^1+2^2) \\
+\dots \\ 
+i=n & \ & 2^{n}T(n+i) + c \sum_{j=0}^{i-1}2^j 
+\end{align*}
+
 
 %
 
