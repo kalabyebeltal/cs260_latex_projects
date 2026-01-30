@@ -1,0 +1,204 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{qtree}
+\usepackage{tikz-qtree}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage[norelsize,noline,noend,linesnumbered]{algorithm2e}
+\usetikzlibrary{arrows,automata}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+\usepackage{mdframed}
+
+
+\begin{document}
+
+\title{CS260 - Written Assignment 2}
+\author{YOUR NAME HERE}
+\date{Winter 2025-26}
+\maketitle
+
+
+
+\begin{questions}
+
+%%%
+
+\question[10] Analyze the runtime of the following pseudocode using summations, then simplify to a closed form and give a tight upper bound on its runtime.
+
+If the runtime is asymptotically different in different cases, briefly explain what the best and worst cases are and give a separate analysis for each case.
+
+\begin{verbatim}
+/* L is a list of n elements */
+function dupes(L, n) {
+  for (i=0; i<n-1; i++) {
+    for (j=i+1; j<n; j++) {
+      if (L[i] == L[j]) {
+        return true
+      }
+    }
+  }
+  return false
+}
+\end{verbatim}
+
+YOUR SOLUTION HERE
+
+%%%
+
+\question Consider the following code:
+
+\begin{verbatim}
+function fooRec(L, n, length) {
+  if (n == length) {
+    print(L) // Assume this takes O(1) time
+    return
+  }
+  L[n] = false
+  fooRec(L, n + 1, length)
+  L[n] = true
+  fooRec(L, n + 1, length)
+}
+
+/* length is an integer */
+function foo(length) {
+  L = newEmptyArray(length) // Assume this takes O(1) time
+  fooRec(L, 0, length)
+}
+\end{verbatim}
+
+\begin{parts}
+
+%
+
+\part[8] Give a recurrence that represents the runtime of \texttt{fooRec}.
+
+YOUR SOLUTION HERE
+
+%
+
+\part[12] Solve the recurrence using the substitution method.
+
+Hint: Here is the closed form of the geometric series: $\sum_{i=0}^k 2^i = 2^{k+1} - 1$. Be careful with your algebra; if a term is outside of parentheses, it's distributed to all terms inside the parentheses.
+
+YOUR SOLUTION HERE
+
+%
+
+\part[5] Using your result to the previous question, give a tight upper bound on the runtime of \texttt{fooRec}.
+
+YOUR SOLUTION HERE
+
+%
+
+\end{parts}
+
+%%%
+
+\question
+
+\begin{parts}
+
+%
+
+\part[20] Give pseudocode, accompanied with a concise written description, implementing each of the following queue operations using only one or more stacks:
+
+\begin{enumerate}
+  \item $enqueue(value)$: Adds $value$ to the queue
+  \item $dequeue()$: Removes and returns the least recently added value
+\end{enumerate}
+
+Assume your stack(s) support these operations:
+
+\begin{enumerate}
+  \item $push(value)$: Inserts $value$ to the stack
+  \item $pop()$: Removes and returns the most recently added value
+  \item $isEmpty()$: Returns true if stack empty, else false
+\end{enumerate}
+
+Remember that you are \textbf{not} allowed to access elements at arbitrary indices in a stack; you can only pop the ``top" element.
+
+Hint: You may use more than one stack.
+
+YOUR SOLUTION HERE
+
+%
+
+\part[10] Analyze the runtime of your $enqueue$ and $dequeue$ operations.
+
+YOUR SOLUTION HERE
+
+%
+
+\end{parts}
+
+%%%
+
+\question Consider a version of merge sort called ``trimerge sort" which splits the input array into three (roughly) equal parts at each recursive step, stopping when the input array has fewer than three elements. Trimerge sort's \texttt{merge} subroutine takes three sorted sub-arrays and merges them into a single sorted sub-array.
+
+\begin{parts}
+
+%
+
+\part[5] Merge sort's \texttt{merge} makes exactly $n$ comparisons to sort two sub-arrays of size $\frac{n}{2}$. Explain exactly how many comparisons trimerge sort's \texttt{merge} will make to merge three sub-arrays of size $\frac{n}{3}$.
+
+Assume trimerge sort's \texttt{merge} has been implemented similar to merge sort's \texttt{merge} (given below), and $n$ is divisible by 3:
+
+\begin{verbatim}
+function merge(A, start, middle, stop) {
+  Copy A[start, middle] to B
+  Copy A[middle + 1, stop] to C
+  Append infinity to B and C
+  i = 0, j = 0
+  for (k = start, k < stop + 1, k++) {
+    if (B[i] <= C[j]) {
+      A[k] = B[i]; i++
+    } else {
+      A[k] = C[j]; j++
+    }
+  }
+  Delete B and C
+}
+\end{verbatim}
+
+YOUR SOLUTION HERE
+
+%
+
+\part[8] Give a recurrence that represents the runtime of trimerge sort.
+
+YOUR SOLUTION HERE
+
+%
+
+\part[12] Solve your recurrence using the substitution method.
+
+YOUR SOLUTION HERE
+
+%
+
+\part[10] Prove or disprove: Trimerge sort is asymptotically faster than merge sort.
+
+Hint: Consider how we usually prove bounds. What does it mean to be asymptotically faster?
+
+YOUR SOLUTION HERE
+
+%
+
+\end{parts}
+
+%%%
+
+\end{questions}
+
+\end{document}
